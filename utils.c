@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:51:35 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/15 18:11:35 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:44:59 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,19 @@ int ft_atoi(const char *s)
 	return ((int)(num));
 }
 
+time_t get_timestamp(void)
+{
+	static time_t start_time;
+	struct timeval t;
+
+	start_time = 0;
+	if (start_time == 0)
+	{
+		gettimeofday(&t, NULL);
+		start_time = ((t.tv_sec * 1000) + (t.tv_usec / 1000));
+	}
+	gettimeofday(&t, NULL);
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000) - start_time);
+
+
+}
