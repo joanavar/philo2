@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:31:55 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/15 19:49:34 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:20:34 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	philo_init(t_table *table)
 	while (i < table->philo_nbr)
 	{
 		table->philos[i].id = i + 1;
-		table->philos[i].meals_c = 0;
+		table->philos[i].num_meals_c = 0;
 		table->philos[i].table = table;
 		table->philos[i].last_meal = 0;
 		table->philos[i].left_fork = &(table->forks[i]);

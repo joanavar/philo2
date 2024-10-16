@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:39:39 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/15 18:29:57 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:17:25 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,9 @@ typedef struct s_table
 	t_mtx		*forks;
 
 }t_table;
+
+
+struct s_philo
+{
+
+}
