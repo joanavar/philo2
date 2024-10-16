@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:07:50 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 19:17:31 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:25:16 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ void	print_status(int philo, char *arg, t_table *table)
 
 }
 
+void	ft_sleep(t_philo *philo)
+{
+	print_status(philo->id, "He is sleeping", philo->table);
+	ft_usleep(&philo->table->time_to_sleep);
+	print_status(philo->id, "He is thinking", philo->table);
+}
+
 int	eat(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->left_fork);
@@ -38,8 +45,11 @@ int	eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->left_fork);
 	pthread_mutex_unlock(&philo->right_fork);
 	philo->num_meals_c++;
-	
-
+	if (jkfbkfbf)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 
@@ -62,6 +72,7 @@ void	*routine(void *table)
 		}
 		pthread_mutex_unlock(&philo->table->m_end);
 		if (eat(philo))
-
+			break ;
+		ft_sleep(philo);
 	}
 }
