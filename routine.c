@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:07:50 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 18:44:21 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:17:31 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ void	print_status(int philo, char *arg, t_table *table)
 int	eat(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->left_fork);
+	print_status(philo->id, "He has taken first fork", philo->table);
+	pthread_mutex_lock(&philo->right_fork);
+	print_status(philo->id, "He has taken second fork", philo->table);
+	print_status(philo->id, "He is eating", philo->table);
+	pthread_mutex_lock(&philo->table->m_time);
+	philo->last_meal = get_timestamp();
+	pthread_mutex_unlock(&philo->table->m_time);
+	ft_usleep(philo->table->time_to_eat);
+	pthread_mutex_unlock(&philo->left_fork);
+	pthread_mutex_unlock(&philo->right_fork);
+	philo->num_meals_c++;
+	
+
 }
 
 
