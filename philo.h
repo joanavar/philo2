@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:39:39 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 18:17:25 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:19:18 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,11 @@ typedef struct s_table
 
 struct s_philo
 {
+	int			id;
+	time_t		last_meal;
+	int			num_meals;
+	pthread_t	t_id;
+	t_mtx		*left_fork;
+	t_mtx		*right_fork;
 
-}
+};
