@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:31:55 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 18:20:34 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:05:08 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	data_init(int argv, char **argv)
 	if (argv[5])
 		table->meals_c = ft_atoi(argv[5]);
 	else 
-		table->meals_c = -1;
+		table->meals_c = 0;
 	table->done_eating = 0;
 	table->end = 0;
 	table->philos = malloc(sizeof(t_philo) * table->philo_nbr);

@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:39:39 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/18 11:19:18 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:11:03 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ typedef struct s_table
 	int			meals_c;
 	int			end;
 	int			done_eating;
+	t_mtx		m_done;
+	t_mtx		m_time;
+	t_mtx		m_print;
+	t_mtx		m_end;
 	t_philo		*philos;
 	t_mtx		*forks;
 
@@ -42,7 +46,8 @@ struct s_philo
 {
 	int			id;
 	time_t		last_meal;
-	int			num_meals;
+	int			num_meals_c;
+	t_table		*table;
 	pthread_t	t_id;
 	t_mtx		*left_fork;
 	t_mtx		*right_fork;

@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:07:50 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 19:25:16 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:46:31 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ int	eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->left_fork);
 	pthread_mutex_unlock(&philo->right_fork);
 	philo->num_meals_c++;
-	if (jkfbkfbf)
+	if (philo->num_meals_c == philo->meals_c)
 	{
+		pthread_mutex_lock(philo->table->m_done);
+		philo->table->done_eating++;
+		pthread_mutex_unlock(philo->table->m_done);
 		return (1);
 	}
 	return (0);
