@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:00:33 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/18 12:20:50 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:56:07 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int main (int argv, char **argc)
 			if (!dinner_start(&table))
 				monitor(&table);
 		}
+		free(table.philos);
+		free(table.forks);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:31:55 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/18 12:05:08 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:15:08 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	philo_init(t_table *table)
 			table->philos[i].right_fork = table->philos[i].left_fork;
 		else
 		{
-			if (i + i == table->philo_nbr)
+			if (i + 1 == table->philo_nbr)
 				table->philos[i].right_fork = table->forks;
 			else
 				table->philos[i].right_fork = &(table->forks[i + 1]);
