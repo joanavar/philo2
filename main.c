@@ -6,13 +6,38 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:00:33 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/18 12:56:07 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:28:30 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	finish(t_table *table)
+{
+	int	i;
 
+	i = -1;
+	pthread_mutex_unlock(&table->m_done);
+	pthread_mutex_unlock(&table->m_end);
+	pthread_mutex_unlock(&table->m_time);
+	pthread_mutex_unlock(&table->m_print);
+	if (tablle->philo_nbr == 1)
+		pthread_mutex_unlock(&table->forks[0]);
+	while (++i < table->philo_nbr)
+		pthread_join(table->philos[i].t_id, NULL);
+	i = -1;
+	while (++i < table->philo_nbr)
+	{
+		pthread_mutex_unlock(&table->forks[i]);
+		pthread_mutex_destroy(&table->forks[i]);
+	}
+	pthread_mutex_destroy(&table->m_time);
+	pthread_mutex_destroy(&table->m_end);
+	pthread_mutex_destroy(&table->m_done);
+	pthread_mutex_destroy(&table->m_print);
+	return (1);
+
+}
 
 void	monitor(t_table *table)
 {
@@ -32,9 +57,10 @@ void	monitor(t_table *table)
 		pthread_mutex_unlock(table->m_end);
 		print_status(table->philos[i].id, "Died", table);
 		return (Funcion de finalizar(table));
-
 	}
-
+	pthread_mutex_unlock(tale->m_time);
+	if (++i == table->philo_nbr)
+		i = 0;
 	
 }
 
