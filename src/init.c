@@ -6,29 +6,29 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:31:55 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/18 13:15:08 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:10:13 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
-int	data_init(int argv, char **argv)
+int	data_init(t_table *table, char **argc)
 {
 	int i;
 
-	table->philo_nbr = ft_atoi(argv[1]);
-	table->time_to_die = ft_atoi(argv[2]);
-	table->time_to_eat = ft_atoi(argv[3]);
-	table->time_to_sleep = ft_atoi(argv[4]);
-	if (argv[5])
-		table->meals_c = ft_atoi(argv[5]);
+	table->philo_nbr = ft_atoi(argc[1]);
+	table->time_to_die = ft_atoi(argc[2]);
+	table->time_to_eat = ft_atoi(argc[3]);
+	table->time_to_sleep = ft_atoi(argc[4]);
+	if (argc[5])
+		table->meals_c = ft_atoi(argc[5]);
 	else 
 		table->meals_c = 0;
 	table->done_eating = 0;
 	table->end = 0;
 	table->philos = malloc(sizeof(t_philo) * table->philo_nbr);
 	table->forks = malloc(sizeof(t_mtx) * table->philo_nbr);
-	if (!data->philos || !data->forks)
+	if (!table->philos || !table->forks)
 		return (error_msg("Memory problem"));
 	i = 0;
 	while (i < table->philo_nbr)

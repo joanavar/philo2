@@ -6,11 +6,11 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:51:35 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/16 18:05:06 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:13:59 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 int error_msg(char *msg)
 {
@@ -37,7 +37,7 @@ void	ft_usleep(int ms)
 		usleep(100);
 }
 
-int ft_atoi(const char *s)
+int ft_atoi(const char *str)
 {
 	unsigned int	num;
 	int				i;
@@ -59,17 +59,16 @@ int ft_atoi(const char *s)
 
 time_t get_timestamp(void)
 {
-	static time_t start_time;
+	static time_t start_time = 0;
 	struct timeval t;
 
-	start_time = 0;
 	if (start_time == 0)
 	{
 		gettimeofday(&t, NULL);
-		start_time = ((t.tv_sec * 1000) + (t.tv_usec / 1000));
+		start_time = ((t.tv_sec * 1000) + t.tv_usec / 1000);
 	}
 	gettimeofday(&t, NULL);
-	return ((t.tv_sec * 1000) + (t.tv_usec / 1000) - start_time);
+	return ((t.tv_sec * 1000 + t.tv_usec / 1000) - start_time);
 
 
 }

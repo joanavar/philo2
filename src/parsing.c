@@ -6,11 +6,11 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:46:02 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/15 18:09:12 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:38:08 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 int parsing_values(int argv, char **argc)
 {
