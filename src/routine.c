@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:07:50 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/21 18:25:25 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:55:23 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	print_status(int philo, char *arg, t_table *table)
 {
 	pthread_mutex_lock(&table->m_end);
 	pthread_mutex_lock(&table->m_print);
+	pthread_mutex_lock(&table->m_time);
 	if (table->end == 0)
-		printf("%ld %d %s\n", get_timestamp() , philo, arg);
+		printf("%ld %d %s\n", get_timestamp(), philo, arg);
 	pthread_mutex_unlock(&table->m_end);
 	pthread_mutex_unlock(&table->m_print);
-
+	pthread_mutex_unlock(&table->m_time);
 }
 
 void	ft_sleep(t_philo *philo)
@@ -53,9 +54,6 @@ int	eat(t_philo *philo)
 	}
 	return (0);
 }
-
-
-
 
 void	*routine(void *table)
 {

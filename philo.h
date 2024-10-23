@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:39:39 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/21 18:16:35 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:21:04 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@
 # include <string.h>
 # include <sys/time.h>
 
-# define EAT 1
-# define SLEEP 2
-# define DIE 3
-
-typedef pthread_mutex_t t_mtx;
+typedef pthread_mutex_t	t_mtx;
 typedef struct s_philo	t_philo;
 
 typedef struct s_table
@@ -42,9 +38,7 @@ typedef struct s_table
 	t_mtx		m_end;
 	t_philo		*philos;
 	t_mtx		*forks;
-
-}t_table;
-
+}	t_table;
 
 struct s_philo
 {
@@ -67,7 +61,7 @@ void	philo_init(t_table *table);
 int		parsing_values(int argv, char **argc);
 int		parsing_check(int argv, char **argc);
 //utils.c
-int 	error_msg(char *msg);
+int		error_msg(char *msg);
 long	get_time(void);
 void	ft_usleep(int ms);
 int		ft_atoi(const char *s);
@@ -82,9 +76,4 @@ int		finish(t_table *table);
 int		monitor(t_table *table);
 int		full_meals(t_table *table);
 int		dinner_start(t_table *table);
-
-
-
 #endif
-
-

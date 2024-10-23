@@ -6,15 +6,15 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:46:02 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/21 16:38:08 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:12:22 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int parsing_values(int argv, char **argc)
+int	parsing_values(int argv, char **argc)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i++ < argv - 1)
@@ -23,10 +23,10 @@ int parsing_values(int argv, char **argc)
 	return (0);
 }
 
-int parsing_check(int argv, char **argc)
+int	parsing_check(int argv, char **argc)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -40,15 +40,13 @@ int parsing_check(int argv, char **argc)
 		{
 			if (i == 0)
 				return (error_msg("Empty argument found"));
-			else 
+			else
 				i = 0;
 		}
 		else if (argc[j][i] == '-' && i == 0)
 			return (error_msg("Negative Number"));
-		else 
+		else
 			return (error_msg("Non digit caracter found in arguments"));
 	}
 	return (parsing_values(argv, argc));
-
-
 }

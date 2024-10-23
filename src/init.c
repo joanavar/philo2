@@ -6,7 +6,7 @@
 /*   By: joanavar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:31:55 by joanavar          #+#    #+#             */
-/*   Updated: 2024/10/21 17:10:13 by joanavar         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:11:03 by joanavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	data_init(t_table *table, char **argc)
 {
-	int i;
+	int	i;
 
 	table->philo_nbr = ft_atoi(argc[1]);
 	table->time_to_die = ft_atoi(argc[2]);
@@ -22,7 +22,7 @@ int	data_init(t_table *table, char **argc)
 	table->time_to_sleep = ft_atoi(argc[4]);
 	if (argc[5])
 		table->meals_c = ft_atoi(argc[5]);
-	else 
+	else
 		table->meals_c = 0;
 	table->done_eating = 0;
 	table->end = 0;
@@ -42,7 +42,7 @@ int	data_init(t_table *table, char **argc)
 
 void	philo_init(t_table *table)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < table->philo_nbr)
